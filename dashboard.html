@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | CareerBridge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div class="app-shell">
+    <aside class="sidebar glass-sidebar">
+      <div class="sidebar-brand">CareerBridge</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+        <a href="employees.html" class="sidebar-link">Employees</a>
+        <a href="attendance.html" class="sidebar-link">Attendance</a>
+        <a href="tasks.html" class="sidebar-link">Tasks</a>
+        <a href="leaves.html" class="sidebar-link">Leaves</a>
+        <a href="reports.html" class="sidebar-link">Reports</a>
+        <a href="admin.html" class="sidebar-link">Admin</a>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <header class="header-row">
+        <h1 class="text-2xl font-semibold">Dashboard</h1>
+        <button id="themeToggle" class="theme-btn">Toggle theme</button>
+      </header>
+
+      <section class="grid gap-6 lg:grid-cols-3">
+        <article class="panel glass-card">
+          <h2 class="text-lg font-semibold">Employee Count</h2>
+          <p id="employeeCount" class="mt-4 text-4xl font-bold text-cyan-300">0</p>
+        </article>
+        <article class="panel glass-card">
+          <h2 class="text-lg font-semibold">Attendance Today</h2>
+          <p id="attendanceCount" class="mt-4 text-4xl font-bold text-emerald-300">0</p>
+        </article>
+        <article class="panel glass-card">
+          <h2 class="text-lg font-semibold">Open Tasks</h2>
+          <p id="taskCount" class="mt-4 text-4xl font-bold text-amber-300">0</p>
+        </article>
+      </section>
+
+      <section class="mt-8 glass-card p-6">
+        <h2 class="text-xl font-semibold">Overview</h2>
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+          <div class="chart-card">Employee growth, attendance trends, and department workload charts will render here.</div>
+          <div class="chart-card">Display summary reports, leave status, and upcoming deadlines.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>

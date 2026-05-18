@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks | CareerBridge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div class="app-shell">
+    <aside class="sidebar glass-sidebar">
+      <div class="sidebar-brand">CareerBridge</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+        <a href="employees.html" class="sidebar-link">Employees</a>
+        <a href="attendance.html" class="sidebar-link">Attendance</a>
+        <a href="tasks.html" class="sidebar-link active">Tasks</a>
+        <a href="leaves.html" class="sidebar-link">Leaves</a>
+        <a href="reports.html" class="sidebar-link">Reports</a>
+        <a href="admin.html" class="sidebar-link">Admin</a>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <header class="header-row">
+        <h1 class="text-2xl font-semibold">Task Management</h1>
+        <button id="themeToggle" class="theme-btn">Toggle theme</button>
+      </header>
+
+      <section class="glass-card p-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:justify-between lg:items-center">
+          <div>
+            <h2 class="text-xl font-semibold">Tasks</h2>
+            <p class="text-slate-400">Assign tasks to employees and monitor progress.</p>
+          </div>
+          <button id="newTaskBtn" class="btn-secondary">New Task</button>
+        </div>
+
+        <div class="mt-6 overflow-x-auto rounded-3xl bg-slate-900/80 p-4">
+          <table class="w-full text-left text-sm text-slate-200">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="py-3">Task</th>
+                <th class="py-3">Assigned To</th>
+                <th class="py-3">Department</th>
+                <th class="py-3">Status</th>
+                <th class="py-3">Due Date</th>
+              </tr>
+            </thead>
+            <tbody id="tasksTable">
+              <tr><td colspan="5" class="py-6 text-center text-slate-500">Loading tasks...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="assets/js/tasks.js"></script>
+</body>
+</html>

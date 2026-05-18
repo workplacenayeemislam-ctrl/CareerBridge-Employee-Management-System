@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports | CareerBridge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <div class="app-shell">
+    <aside class="sidebar glass-sidebar">
+      <div class="sidebar-brand">CareerBridge</div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+        <a href="employees.html" class="sidebar-link">Employees</a>
+        <a href="attendance.html" class="sidebar-link">Attendance</a>
+        <a href="tasks.html" class="sidebar-link">Tasks</a>
+        <a href="leaves.html" class="sidebar-link">Leaves</a>
+        <a href="reports.html" class="sidebar-link active">Reports</a>
+        <a href="admin.html" class="sidebar-link">Admin</a>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <header class="header-row">
+        <h1 class="text-2xl font-semibold">Reporting System</h1>
+        <button id="themeToggle" class="theme-btn">Toggle theme</button>
+      </header>
+
+      <section class="glass-card p-6">
+        <h2 class="text-xl font-semibold">Reports</h2>
+        <p class="text-slate-400">View analytics for employees, attendance, tasks, and leave.</p>
+
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+          <div class="report-card">Department workload analysis.</div>
+          <div class="report-card">Leave distribution and approval status.</div>
+          <div class="report-card">Attendance performance metrics.</div>
+          <div class="report-card">Task completion summary.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="assets/js/reports.js"></script>
+</body>
+</html>

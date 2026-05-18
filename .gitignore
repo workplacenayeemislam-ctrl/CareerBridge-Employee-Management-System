@@ -1,0 +1,29 @@
+# Node and local environment files
+node_modules/
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# VS Code
+.vscode/
+
+# Google Apps Script metadata
+*.clasp.json
+
+# Build artifacts
+dist/
+build/
+
+# System files
+Thumbs.db
+Desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.log

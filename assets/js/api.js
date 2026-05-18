@@ -1,9 +1,5 @@
 import { API_BASE_URL } from "./config.js";
 
-const defaultHeaders = {
-  "Content-Type": "application/json",
-};
-
 async function handleResponse(response) {
   const text = await response.text();
   try {
@@ -13,42 +9,22 @@ async function handleResponse(response) {
   }
 }
 
-function buildUrl(path, query = {}) {
-  const url = new URL(API_BASE_URL);
-  url.pathname = path;
-  Object.entries(query).forEach(([key, value]) => {
-    if (value !== undefined && value !== null) {
-      url.searchParams.set(key, value);
-    }
-  });
-  return url.toString();
-}
-
-export async function getRequest(path, query) {
-  const url = buildUrl(path, query);
+export async function postRequest(path, body) {
+  const url = `${API_BASE_URL}?path=${path}`;
   const response = await fetch(url, {
-    method: "GET",
-    headers: defaultHeaders,
-    mode: "cors",
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
   });
-  if (!response.ok) {
-    const error = await handleResponse(response);
-    throw new Error(error.message || "API GET request failed");
-  }
   return handleResponse(response);
 }
 
-export async function postRequest(path, body) {
-  const response = await fetch(buildUrl(path), {
-    method: "POST",
-    headers: defaultHeaders,
-    mode: "cors",
-    body: JSON.stringify(body),
+export async function getRequest(path, query = {}) {
+  const params = new URLSearchParams({ path, ...query });
+  const url = `${API_BASE_URL}?${params.toString()}`;
+  const response = await fetch(url, {
+    method: "GET",
   });
-  if (!response.ok) {
-    const error = await handleResponse(response);
-    throw new Error(error.message || "API POST request failed");
-  }
   return handleResponse(response);
 }
 

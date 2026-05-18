@@ -24,8 +24,14 @@
 
     <main class="main-panel">
       <header class="header-row">
-        <h1 class="text-2xl font-semibold">Employee Management</h1>
-        <button id="themeToggle" class="theme-btn">Toggle theme</button>
+        <div>
+          <h1 class="text-2xl font-semibold">Employee Management</h1>
+          <p id="headerUser" class="mt-1 text-sm text-slate-400"></p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" class="theme-btn">Toggle theme</button>
+          <button id="logoutBtn" class="btn-secondary">Sign out</button>
+        </div>
       </header>
 
       <section class="glass-card p-6">

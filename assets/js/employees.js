@@ -1,10 +1,23 @@
 import { fetchEmployees } from "./api.js";
-import { initThemeToggle, loadTheme } from "./ui.js";
+import { initThemeToggle, loadTheme, requireLogin, renderAppHeader, attachLogout, applyRoleNavigation } from "./ui.js";
 
 loadTheme();
 initThemeToggle("#themeToggle");
 
+const currentUser = requireLogin();
+if (!currentUser) {
+  throw new Error("Login required");
+}
+
+renderAppHeader();
+attachLogout();
+applyRoleNavigation();
+
 const tableBody = document.getElementById("employeesTable");
+const addEmployeeBtn = document.getElementById("addEmployeeBtn");
+if (addEmployeeBtn && (currentUser.role || "").toString().toLowerCase() !== "admin") {
+  addEmployeeBtn.style.display = "none";
+}
 
 function renderRows(employees) {
   if (!employees || employees.length === 0) {

@@ -43,6 +43,8 @@ function handleRequest(e, method) {
         return handleLeaveRequest(method, action, payload);
       case "reports":
         return handleReportRequest(method, action, payload);
+      case "admin":
+        return handleAdminRequest(action, payload);
       default:
         return jsonResponse({ success: false, message: "Invalid API path." }, 404);
     }

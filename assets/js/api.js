@@ -72,6 +72,10 @@ export async function fetchLeaves() {
   return getRequest("/leaves");
 }
 
+export async function fetchAdminOverview() {
+  return getRequest("/admin/overview");
+}
+
 export async function fetchReports() {
   return getRequest("/reports");
 }

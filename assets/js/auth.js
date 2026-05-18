@@ -1,5 +1,5 @@
 import { loginUser } from "./api.js";
-import { initThemeToggle, loadTheme } from "./ui.js";
+import { initThemeToggle, loadTheme, setUserSession } from "./ui.js";
 
 loadTheme();
 initThemeToggle("#themeToggle");
@@ -14,7 +14,9 @@ async function handleLogin(event) {
   try {
     const response = await loginUser({ email, password });
     if (response.success) {
-      window.location.href = "dashboard.html";
+      setUserSession(response.user);
+      const destination = (response.user.role || "").toString().toLowerCase() === "admin" ? "admin.html" : "dashboard.html";
+      window.location.href = destination;
       return;
     }
     alert(response.message || "Login failed. Check your credentials.");

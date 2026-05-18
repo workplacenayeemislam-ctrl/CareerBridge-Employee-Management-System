@@ -1,8 +1,17 @@
 import { fetchEmployees, fetchAttendance, fetchTasks } from "./api.js";
-import { initThemeToggle, loadTheme } from "./ui.js";
+import { initThemeToggle, loadTheme, requireLogin, renderAppHeader, attachLogout, applyRoleNavigation } from "./ui.js";
 
 loadTheme();
 initThemeToggle("#themeToggle");
+
+const currentUser = requireLogin();
+if (!currentUser) {
+  throw new Error("Login required");
+}
+
+renderAppHeader();
+attachLogout();
+applyRoleNavigation();
 
 async function renderDashboard() {
   try {

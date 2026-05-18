@@ -1,4 +1,3 @@
-import { API_BASE_URL } from "./config.js";
 
 async function handleResponse(response) {
   const text = await response.text();
